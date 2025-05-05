@@ -25,7 +25,7 @@ def get_iam_policies_for_projects(org_id):
             data = request.execute()
             df = pd.json_normalize(data[json_root])
             while request is not None:
-                    request = service.projects().list_next(request, data)
+                    request = service.v1().searchAllIamPolicies_next(request, data)
                     if (request is None):
                         break
                     else:
